@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shery Awad — Economics Researcher</title>
+  <meta name="description" content="Portfolio of Shery Awad, MA Economics candidate at CSULB. Research in gravity models, social connectedness, and causal inference." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #faf9f7;
+      --bg-card: #ffffff;
+      --bg-surface: #f2f0ec;
+      --text: #1a1917;
+      --text-secondary: #6b6860;
+      --text-tertiary: #a09d97;
+      --border: rgba(26,25,23,0.11);
+      --border-hover: rgba(26,25,23,0.24);
+      --info-bg: #eef3fb;
+      --info-text: #1a4a8a;
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #141311;
+        --bg-card: #1e1c1a;
+        --bg-surface: #252320;
+        --text: #f0ede8;
+        --text-secondary: #9b9790;
+        --text-tertiary: #636059;
+        --border: rgba(240,237,232,0.10);
+        --border-hover: rgba(240,237,232,0.24);
+        --info-bg: #1a2a42;
+        --info-text: #7aabee;
+      }
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: start;
+      margin-bottom: 3.5rem;
+      padding-bottom: 3rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .hero-eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 44px;
+      line-height: 1.08;
+      letter-spacing: -0.5px;
+      margin-bottom: 1rem;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--text-secondary);
+    }
+
+    .hero-bio {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      max-width: 500px;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-row {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+
+    .contact-item:hover { color: var(--text); }
+
+    .contact-item svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    .avatar {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: var(--bg-surface);
+      border: 0.5px solid var(--border);
+      flex-shrink: 0;
+      overflow: hidden;
+      object-fit: cover;
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+    }
+
+    .research-section { margin-bottom: 3.5rem; }
+
+    .paper-card {
+      background: var(--bg-card);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.75rem;
+      cursor: pointer;
+      transition: border-color 0.15s ease;
+    }
+
+    .paper-card:hover { border-color: var(--border-hover); }
+
+    .paper-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .paper-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 19px;
+      line-height: 1.3;
+      flex: 1;
+    }
+
+    .paper-badge {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 11px;
+      border-radius: 20px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      background: var(--info-bg);
+      color: var(--info-text);
+    }
+
+    .paper-byline {
+      font-size: 12.5px;
+      color: var(--text-tertiary);
+    }
+
+    .paper-abstract {
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      margin-top: 14px;
+      display: none;
+    }
+
+    .paper-abstract.open { display: block; }
+
+    .findings-row {
+      display: none;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .findings-row.open { display: grid; }
+
+    .finding {
+      background: var(--bg-surface);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+    }
+
+    .finding-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 24px;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .finding-desc {
+      font-size: 11.5px;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+
+    .paper-footer {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 2px 9px;
+      border-radius: 20px;
+      border: 0.5px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    .toggle-btn {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      color: var(--text-tertiary);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      padding: 0;
+      transition: color 0.12s;
+    }
+
+    .toggle-btn:hover { color: var(--text-secondary); }
+
+    .toggle-btn svg {
+      width: 13px;
+      height: 13px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform 0.2s ease;
+    }
+
+    .toggle-btn.open svg { transform: rotate(180deg); }
+
+    .paper-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border: 0.5px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 20px;
+      transition: border-color 0.12s, color 0.12s;
+    }
+
+    .paper-link:hover { color: var(--text); border-color: var(--border-hover); }
+
+    .paper-link svg {
+      width: 12px; height: 12px;
+      stroke: currentColor; fill: none;
+      stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    .skills-section { margin-bottom: 3.5rem; }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+      gap: 10px;
+    }
+
+    .skill-card {
+      background: var(--bg-surface);
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+    }
+
+    .skill-label {
+      font-size: 10.5px;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .skill-list {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      line-height: 1.9;
+    }
+
+    .edu-section { margin-bottom: 3.5rem; }
+
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 16px 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .edu-item:first-child { border-top: 0.5px solid var(--border); }
+
+    .edu-school { font-size: 14.5px; font-weight: 500; margin-bottom: 3px; }
+    .edu-degree { font-size: 13px; color: var(--text-secondary); }
+    .edu-year { font-size: 12px; color: var(--text-tertiary); text-align: right; line-height: 1.5; }
+
+    .btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13.5px;
+      font-weight: 500;
+      padding: 9px 18px;
+      border-radius: var(--radius-sm);
+      border: 0.5px solid var(--border-hover);
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      text-decoration: none;
+      transition: background 0.12s;
+    }
+
+    .btn:hover { background: var(--bg-surface); }
+
+    .btn svg {
+      width: 14px; height: 14px;
+      stroke: currentColor; fill: none;
+      stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    .btn-primary { background: var(--text); color: var(--bg); border-color: var(--text); }
+    .btn-primary:hover { opacity: 0.85; background: var(--text); }
+
+    .footer {
+      margin-top: 5rem;
+      padding-top: 2rem;
+      border-top: 0.5px solid var(--border);
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+
+    @media (max-width: 560px) {
+      .hero { grid-template-columns: 1fr; }
+      .avatar { display: none; }
+      .hero-name { font-size: 34px; }
+      .findings-row { grid-template-columns: 1fr; }
+      .page { padding: 2.5rem 1.25rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+
+    <header class="hero">
+      <div>
+        <p class="hero-eyebrow">Economics Researcher</p>
+        <h1 class="hero-name">Shery <em>Awad</em></h1>
+        <p class="hero-bio">MA Economics candidate at Cal State Long Beach. I work at the intersection of empirical trade, regional economics, and social networks — using causal inference and gravity models to study how borders and institutions shape human behavior.</p>
+        <div class="contact-row">
+          <span class="contact-item">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Riverside, CA
+          </span>
+          <a class="contact-item" href="mailto:sherysameh1@gmail.com">
+            <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            sherysameh1@gmail.com
+          </a>
+          <a class="contact-item" href="https://github.com/SheryAwad728" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+            SheryAwad728
+          </a>
+        </div>
+      </div>
+      <img class="avatar" src="photo.jpg" alt="Shery Awad" />
+    </header>
+
+    <section class="research-section" aria-labelledby="research-heading">
+      <p class="section-label" id="research-heading">Research</p>
+      <article class="paper-card" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' ')toggleCard(this)">
+        <div class="paper-top">
+          <h2 class="paper-title">Border Effects in Social Connectedness</h2>
+          <span class="paper-badge">SSRN · May 2026</span>
+        </div>
+        <p class="paper-byline">Shery Awad &nbsp;&middot;&nbsp; May 2026 &nbsp;&middot;&nbsp; California State University, Long Beach</p>
+        <p class="paper-abstract">
+          I examine the effect of state borders on social connectedness using a gravity framework applied to U.S. county-to-county Facebook friendship data. Crossing a state border reduces social connectedness by approximately 62%, even after controlling for geographic distance and contiguity. I test four mechanisms: average undergraduate enrollment, flagship university presence and catchment areas, shared commuting zones, and political differences. Counties hosting a flagship and those with higher enrollment exhibit weaker within-state ties, consistent with a national orientation effect. Shared commuting zones emerge as the strongest mechanism &mdash; within-state pairs sharing a local economic community show significantly stronger social ties. Political dissimilarity reduces social connectedness and amplifies the cross-border penalty. The border effect remains large and significant across all specifications, suggesting additional sources of friction remain unidentified.
+        </p>
+        <div class="findings-row" aria-hidden="true">
+          <div class="finding">
+            <p class="finding-num">62%</p>
+            <p class="finding-desc">reduction in social connectedness from crossing a state border</p>
+          </div>
+          <div class="finding">
+            <p class="finding-num">~172%</p>
+            <p class="finding-desc">stronger ties for cross-state pairs sharing a commuting zone</p>
+          </div>
+          <div class="finding">
+            <p class="finding-num">9.7M</p>
+            <p class="finding-desc">county pairs in the estimation sample</p>
+          </div>
+        </div>
+        <div class="paper-footer">
+          <span class="tag">Gravity Model</span>
+          <span class="tag">PPML</span>
+          <span class="tag">Social Networks</span>
+          <span class="tag">Regional Economics</span>
+          <span class="tag">Stata</span>
+          <a class="paper-link" href="https://ssrn.com/abstract=6774204" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            SSRN Paper
+          </a>
+          <a class="paper-link" href="https://github.com/SheryAwad728/border-effects-social-connectedness" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+            <svg viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+            View Code
+          </a>
+          <button class="toggle-btn" onclick="event.stopPropagation();toggleCard(this.closest('.paper-card'))" tabindex="-1" aria-hidden="true">
+            <span class="toggle-text">Read abstract</span>
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+        </div>
+      </article>
+
+      <article class="paper-card" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' ')toggleCard(this)" style="margin-top:1rem;">
+        <div class="paper-top">
+          <h2 class="paper-title">Extradition Treaties and Homicide Rates: A Cross-Country Panel Analysis</h2>
+          <span class="paper-badge">Portfolio · June 2026</span>
+        </div>
+        <p class="paper-byline">Shery Awad &nbsp;&middot;&nbsp; June 2026 &nbsp;&middot;&nbsp; California State University, Long Beach</p>
+        <p class="paper-abstract">
+          I examine whether bilateral extradition treaties reduce homicide rates in signing countries and whether the expansion of extradition networks displaces criminal activity to non-treaty &ldquo;safe haven&rdquo; countries. I construct a novel dataset of U.S. bilateral extradition treaties by parsing and manually verifying the U.S. State Department <em>Treaties in Force</em> (2025) against primary source entries, then merge it with UNODC homicide data covering 208 countries from 1990&ndash;2022. Using a staggered difference-in-differences design with two-way fixed effects, I find no statistically significant deterrence or displacement effect across global, regional, and neighbor-exposure specifications. The parallel trends assumption is supported by the event study. This null result suggests that extradition treaties alone may be insufficient to deter violent crime, challenging the implicit deterrence assumption behind treaty negotiations.
+        </p>
+        <div class="findings-row" aria-hidden="true">
+          <div class="finding">
+            <p class="finding-num">208</p>
+            <p class="finding-desc">countries in the panel, 1990&ndash;2022</p>
+          </div>
+          <div class="finding">
+            <p class="finding-num">36</p>
+            <p class="finding-desc">post-1995 treated countries in the DiD sample</p>
+          </div>
+          <div class="finding">
+            <p class="finding-num">null</p>
+            <p class="finding-desc">well-identified null result across all specifications</p>
+          </div>
+        </div>
+        <div class="paper-footer">
+          <span class="tag">Difference-in-Differences</span>
+          <span class="tag">Panel Fixed Effects</span>
+          <span class="tag">International Economics</span>
+          <span class="tag">Crime Policy</span>
+          <span class="tag">R</span>
+          <a class="paper-link" href="https://github.com/SheryAwad728/Extradition-Treaties-and-Homicide-Rates-A-Cross-Country-Panel-Analysis" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+            <svg viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+            View Code
+          </a>
+          <button class="toggle-btn" onclick="event.stopPropagation();toggleCard(this.closest('.paper-card'))" tabindex="-1" aria-hidden="true">
+            <span class="toggle-text">Read abstract</span>
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+        </div>
+      </article>
+    </section>
+
+    <section class="resources-section" aria-labelledby="resources-heading" style="margin-bottom: 3.5rem;">
+      <p class="section-label" id="resources-heading">Resources</p>
+      <article class="paper-card" style="cursor: default;">
+        <div class="paper-top">
+          <h2 class="paper-title">Econometrics Guide</h2>
+          <span class="paper-badge">Ongoing</span>
+        </div>
+        <p class="paper-byline">Applied econometrics coding reference &nbsp;&middot;&nbsp; R &amp; Stata</p>
+        <p class="paper-abstract open" style="margin-top: 14px;">
+          A topic-by-topic reference I'm building while working back through my coursework — plain-language explanations paired with working R and Stata code, published one entry at a time. Currently covers programming foundations (for loops, data structures), with regression, panel data, and time series methods to follow.
+        </p>
+        <div class="paper-footer">
+          <span class="tag">R</span>
+          <span class="tag">Stata</span>
+          <span class="tag">Teaching</span>
+          <a class="paper-link" href="https://sheryawad728.github.io/Econometrics-Guide-/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Visit Guide
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <section class="skills-section" aria-labelledby="skills-heading">
+      <p class="section-label" id="skills-heading">Technical Skills</p>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <p class="skill-label">Software</p>
+          <p class="skill-list">Stata<br>R<br>Excel</p>
+        </div>
+        <div class="skill-card">
+          <p class="skill-label">Econometrics</p>
+          <p class="skill-list">PPML / OLS<br>Difference-in-Differences<br>Gravity Models<br>Time Series / VAR</p>
+        </div>
+        <div class="skill-card">
+          <p class="skill-label">Methods</p>
+          <p class="skill-list">Causal Inference<br>Panel Fixed Effects<br>Hypothesis Testing<br>Forecast Evaluation</p>
+        </div>
+        <div class="skill-card">
+          <p class="skill-label">Languages</p>
+          <p class="skill-list">English (Fluent)<br>Arabic (Fluent)</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="edu-section" aria-labelledby="edu-heading">
+      <p class="section-label" id="edu-heading">Education</p>
+      <div class="edu-item">
+        <div>
+          <p class="edu-school">California State University, Long Beach</p>
+          <p class="edu-degree">MA Economics &mdash; GPA 3.60 / 4.00</p>
+        </div>
+        <p class="edu-year">Expected<br>Dec 2026</p>
+      </div>
+      <div class="edu-item">
+        <div>
+          <p class="edu-school">University of California, Riverside</p>
+          <p class="edu-degree">BA Economics</p>
+        </div>
+        <p class="edu-year">2021</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="contact-heading">
+      <p class="section-label" id="contact-heading">Get in touch</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="mailto:sherysameh1@gmail.com">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Email me
+        </a>
+        <a class="btn" href="https://github.com/SheryAwad728" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+          GitHub
+        </a>
+        <a class="btn" href="https://ssrn.com/abstract=6774204" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          SSRN
+        </a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Shery Awad &nbsp;&middot;&nbsp; sheryawad728.github.io</p>
+    </footer>
+
+  </main>
+  <script>
+    function toggleCard(card) {
+      const abs = card.querySelector('.paper-abstract');
+      const findings = card.querySelector('.findings-row');
+      const btn = card.querySelector('.toggle-btn');
+      const txt = card.querySelector('.toggle-text');
+      const isOpen = abs.classList.toggle('open');
+      findings.classList.toggle('open', isOpen);
+      if (btn) btn.classList.toggle('open', isOpen);
+      if (txt) txt.textContent = isOpen ? 'Collapse' : 'Read abstract';
+      card.setAttribute('aria-expanded', isOpen);
+    }
+  </script>
+</body>
+</html>
